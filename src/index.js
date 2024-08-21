@@ -56,7 +56,7 @@ module.exports = function toReadable(number) {
     if (numberString[1] === "1") {
         tens = by19Array[numberString.slice(-2)];
         readable = `${hundred} hundred ${tens}`;
-        return readable.trim();
+        return readable;
     }
 
     readable = `${hundred} hundred ${tens} ${units}`;
