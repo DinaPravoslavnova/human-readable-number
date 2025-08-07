@@ -54,11 +54,12 @@ module.exports = function toReadable(number) {
     }
 
     if (numberString[1] === "1") {
-        tens = by19Array[numberString.slice(-2)];
+        // Исправленный блок для чисел, заканчивающихся на 10-19
+        tens = by19Array[+numberString.slice(-2)];
         readable = `${hundred} hundred ${tens}`;
-        return readable;
+        return readable.trim();
     }
 
     readable = `${hundred} hundred ${tens} ${units}`;
-    return readable.replace(/  /, " ").trim();
+    return readable.replace(/\s+/g, " ").trim();
 };
